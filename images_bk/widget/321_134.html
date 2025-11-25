@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Oasys Digital Signage</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=[[ViewPortWidth]]" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Copyright 2006-2025 Xibo Signage Ltd. Part of the Xibo Open Source Digital Signage Solution. Released under the AGPLv3 or later. -->
+        <script type="text/javascript" src="[[PlayerBundle]]"></script>
+        <link href="[[FontBundle]]" rel="stylesheet">
+                <style type="text/css">
+            body {
+                margin: 0;
+                overflow: hidden;
+                font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+            }
+            h1, h2, h3, h4, p {
+                margin-top: 0;
+            }
+            #iframe {
+                border: 0;
+            }
+            .cycle-slide p, p.cycle-slide {
+                margin-bottom:0;
+            }
+        </style>
+            </head>
+    <body>
+        <div id="content"></div>
+            </body>
+    <script type="text/javascript">
+        var xiboICTargetId = 321;
+        xiboIC.setTargetId(xiboICTargetId);
+        window.globalOptions = {
+          originalWidth: 1920,
+          originalHeight: 1080,
+          totalDuration: 1,
+          cmsDateFormat: 'Y-m-d H:i',
+          locale: 'en-GB',
+        };
+        var widgetData = [];
+                widgetData.push({"widgetId":321,"templateId":null,"sample":null,"properties":[],"isValid":true,"isRepeatData":true,"duration":1,"calculatedDuration":1,"isDataExpected":false,"url":null,"data":null});
+        
+        var elements = [];
+                elements.push([{"elements":[{"id":"global_library_image","elementName":"","elementId":"element_global_library_image_778037","type":"global","left":0,"top":3,"width":1920,"height":1077,"layer":0,"rotation":0,"properties":{"url":null,"opacity":100,"objectFit":"contain","alignId":"center","valignId":"middle","roundBorder":0,"borderRadius":20,"imageShadow":0,"imageShadowColor":"","shadowX":1,"shadowY":1,"shadowBlur":2,"assetId":null,"imageReplace":null,"mediaId":"[[mediaId=8]]"},"isVisible":true,"effect":"noTransition","mediaId":8,"mediaName":"272050.jpg"},{"id":"date_advanced","elementName":"","elementId":"element_date_advanced_678279","type":"global","left":1540,"top":943,"width":380,"height":80,"layer":1,"rotation":0,"properties":{"currentDate":1,"offset":0,"date":"","dateFormat":"DD\/MM\/YYYY HH:mm:ss","lang":"en-gb","fontFamily":"","fontColor":"#6147cc","fitToArea":0,"useGradient":0,"gradient":"{\"type\":\"linear\",\"color1\":\"#222222\",\"color2\":\"#eee\",\"angle\":0}","fontSize":40,"lineHeight":1.2,"bold":0,"italics":0,"underline":0,"textWrap":1,"showOverflow":1,"textShadow":0,"textShadowColor":"","shadowX":1,"shadowY":1,"shadowBlur":2,"horizontalAlign":"center","verticalAlign":"center"},"isVisible":true,"effect":"noTransition","mediaName":"Date \/ Time"},{"id":"line","elementName":"","elementId":"element_line_609375","type":"global","left":0,"top":747,"width":1920,"height":80,"layer":2,"rotation":0,"properties":{"lineWidth":5,"lineColor":"#f9f9f9","lineStyle":"solid","tip1Type":"squared","tip2Type":"squared"},"isVisible":true,"effect":"noTransition","mediaName":"Line"},{"id":"rectangle","elementName":"test","elementId":"element_rectangle_74544","type":"global","left":12,"top":33,"width":539,"height":233,"layer":3,"rotation":0,"properties":{"backgroundColor":"#1775f6","useGradient":0,"gradient":"{\"type\":\"linear\",\"color1\":\"#222222\",\"color2\":\"#eee\",\"angle\":0}","roundBorder":0,"borderRadius":20,"outline":1,"outlineColor":"#f9f9f9","outlineWidth":8},"isVisible":true,"effect":"noTransition","mediaName":"Rectangle"},{"id":"circle","elementName":"test22","elementId":"element_circle_324373","type":"global","left":640,"top":16,"width":250,"height":250,"layer":4,"rotation":0,"properties":{"backgroundColor":"#1775f6","useGradient":0,"gradient":"{\"type\":\"linear\",\"color1\":\"#222222\",\"color2\":\"#eee\",\"angle\":0}","fit":0,"outline":1,"outlineColor":"#f9f9f9","outlineWidth":8},"isVisible":true,"effect":"noTransition","mediaName":"Circle"},{"id":"rectangle","elementName":"test3","elementId":"element_rectangle_674073","type":"global","left":1012,"top":57,"width":340,"height":209,"layer":5,"rotation":0,"properties":{"backgroundColor":"#1775f6","useGradient":0,"gradient":"{\"type\":\"linear\",\"color1\":\"#222222\",\"color2\":\"#eee\",\"angle\":0}","roundBorder":0,"borderRadius":20,"outline":1,"outlineColor":"#f9f9f9","outlineWidth":8},"isVisible":true,"effect":"noTransition","mediaName":"Rectangle"},{"id":"ellipse","elementName":"","elementId":"element_ellipse_510020","type":"global","left":1454,"top":50,"width":300,"height":200,"layer":6,"rotation":0,"properties":{"backgroundColor":"#1775F6","outline":1,"outlineColor":"#f9f9f9","outlineWidth":4},"isVisible":true,"effect":"noTransition","mediaName":"Ellipse"},{"id":"triangle","elementName":"test4","elementId":"element_triangle_42967","type":"global","left":106,"top":395,"width":250,"height":250,"layer":7,"rotation":0,"properties":{"backgroundColor":"#1775f6","useGradient":0,"gradient":"{\"type\":\"linear\",\"color1\":\"#222222\",\"color2\":\"#eee\",\"angle\":0}","fit":0,"outline":1,"outlineColor":"#f9f9f9","outlineWidth":8},"isVisible":true,"effect":"noTransition","mediaName":"Triangle"},{"id":"pentagon","elementName":"","elementId":"element_pentagon_989342","type":"global","left":1479,"top":395,"width":250,"height":250,"layer":8,"rotation":0,"properties":{"backgroundColor":"#1775f6","useGradient":0,"gradient":"{\"type\":\"linear\",\"color1\":\"#222222\",\"color2\":\"#eee\",\"angle\":0}","fit":0,"outline":1,"outlineColor":"#f9f9f9","outlineWidth":8},"isVisible":true,"effect":"noTransition","mediaName":"Pentagon"},{"id":"hexagon","elementName":"test6","elementId":"element_hexagon_77623","type":"global","left":76,"top":822,"width":280,"height":226,"layer":9,"rotation":0,"properties":{"backgroundColor":"#1775f6","useGradient":0,"gradient":"{\"type\":\"linear\",\"color1\":\"#222222\",\"color2\":\"#eee\",\"angle\":0}","fit":0,"outline":1,"outlineColor":"#f9f9f9","outlineWidth":8},"isVisible":true,"effect":"noTransition","mediaName":"Hexagon"},{"id":"text","elementName":"","elementId":"element_text_916631","type":"global","left":492,"top":870,"width":911,"height":153,"layer":10,"rotation":0,"properties":{"text":"Welome to Digital Signage","fontFamily":"","fontColor":"#f9f9f9","fitToArea":0,"useGradient":0,"gradient":"{\"type\":\"linear\",\"color1\":\"#222222\",\"color2\":\"#eee\",\"angle\":0}","fontSize":40,"lineHeight":1.2,"bold":0,"italics":0,"underline":0,"textWrap":1,"justify":0,"showOverflow":1,"textShadow":0,"textShadowColor":"","shadowX":1,"shadowY":1,"shadowBlur":2,"horizontalAlign":"center","verticalAlign":"center"},"isVisible":true,"effect":"noTransition","mediaName":"Text"}],"widgetId":321}]);
+            </script>
+    <script type="text/x-handlebars-template" id="hbs-global_image"
+            data-width=""
+            data-height=""
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="global-elements-image img-container"
+    style="width:100%; height: 100%; overflow: hidden; position: relative;
+    {{#if roundBorder}}border-radius: {{borderRadius}}px;{{/if}}">
+    <img src="{{#if assetId}}[[assetId={{assetId}}]]{{else}}{{{url}}}{{/if}}" style="
+        width:100%; height: 100%;
+        object-fit: {{objectFit}};
+        object-position: {{alignId}} {{valignId}};
+        opacity: {{opacity}}%;
+        {{#if imageShadow}}
+            filter: drop-shadow({{shadowX}}px {{shadowY}}px {{shadowBlur}}px {{imageShadowColor}});
+        {{/if}}
+        position: absolute; top: 0; left: 0;"
+    />
+</div></script>
+    <script type="text/x-handlebars-template" id="hbs-global_library_image"
+            data-width=""
+            data-height=""
+            data-gap=""
+            data-extends-override="url"
+            data-extends-with="mediaId"
+            data-escape-html="1"
+    ><div class="global-elements-image img-container"
+    style="width:100%; height: 100%; overflow: hidden; position: relative;
+    {{#if roundBorder}}border-radius: {{borderRadius}}px;{{/if}}">
+    <img src="{{#if assetId}}[[assetId={{assetId}}]]{{else}}{{{url}}}{{/if}}" style="
+        width:100%; height: 100%;
+        object-fit: {{objectFit}};
+        object-position: {{alignId}} {{valignId}};
+        opacity: {{opacity}}%;
+        {{#if imageShadow}}
+            filter: drop-shadow({{shadowX}}px {{shadowY}}px {{shadowBlur}}px {{imageShadowColor}});
+        {{/if}}
+        position: absolute; top: 0; left: 0;"
+    />
+</div></script>
+    <script type="text/x-handlebars-template" id="hbs-date_advanced"
+            data-width=""
+            data-height=""
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="global-elements-date-advanced"
+    style="
+    display: -webkit-flex;
+    display: flex;
+    {{#if fitToArea}}
+        white-space: nowrap;
+    {{else}}
+        {{#if fontSize}}font-size: {{fontSize}}px;{{/if}}
+        {{#if showOverflow}}overflow: visible;{{else}}overflow: hidden;{{/if}}
+        {{#if horizontalAlign}}justify-content: {{horizontalAlign}};{{/if}}
+    {{/if}}
+    {{#if verticalAlign}}align-items: {{verticalAlign}};{{/if}}
+    width: 100%; height: 100%;"
+>
+<div class="date-advanced"
+style="
+    {{#if fontFamily}}font-family: {{fontFamily}};{{/if}}
+    {{#if useGradient}}
+        {{parseJSON "gb" gradient}}
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent;
+        {{#eq gb.type 'linear'}}
+            background-image: linear-gradient({{gb.angle}}deg, {{gb.color1}}, {{gb.color2}});
+        {{else}}
+            background-image: radial-gradient(circle, {{gb.color1}}, {{gb.color2}});
+        {{/eq}}
+    {{else}}
+        {{#if bold}}font-weight: bold;{{/if}}
+        {{#if italics}}font-style: italic;{{/if}}
+        {{#if underline}}text-decoration: underline;{{/if}}
+        {{#if fontColor}}color: {{fontColor}};{{/if}}
+        {{#if textShadow}}text-shadow: {{shadowX}}px {{shadowY}}px {{shadowBlur}}px {{textShadowColor}};{{/if}}
+    {{/if}}
+    {{#if lineHeight}}line-height: {{lineHeight}};{{/if}}
+    {{#if textWrap}}white-space: break-spaces;{{else}}white-space: nowrap;{{/if}}
+"></div>
+</div></script>
+    <script type="text/x-handlebars-template" id="hbs-line"
+            data-width=""
+            data-height=""
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="global-elements-line" style="position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;"
+><svg version="1.1" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    {{#eq tip1Type "diamond"}}
+        <g fill="{{lineColor}}" style="
+                transform:
+                translate(0, calc(50% - calc({{lineWidth}}px * 1.5 * 1.214)))
+                scale(calc({{lineWidth}} * 0.75));
+        ">
+            <polygon points="0 2.5,2.5 5,5 2.5,2.5 0"></polygon>
+        </g>
+    {{/eq}}
+    {{#eq tip2Type "diamond"}}
+        <g fill="{{lineColor}}" style="
+                transform:
+                translate(calc(100% - calc({{lineWidth}}px * 3.75)), calc(50% - calc({{lineWidth}}px * 1.5 * 1.214)))
+                scale(calc({{lineWidth}} * 0.75));
+        ">
+            <polygon points="0 2.5,2.5 5,5 2.5,2.5 0"></polygon>
+        </g>
+    {{/eq}}
+    {{#*inline "lineArrow"}}
+        <g fill="{{fillColor}}" style="
+            transform:
+            {{#eq tip "start"}}
+                translate(3px, calc(50% - calc({{strokeWidth}}px * 3)))
+            {{/eq}}
+            {{#eq tip "end"}}
+                translate(calc(100% - calc({{strokeWidth}}px * 4)), calc(50% - calc({{strokeWidth}}px * 3)))
+            {{/eq}}
+            scale(calc({{strokeWidth}} * 0.75))
+        ">
+            <polygon points="{{points}}"></polygon>
+        </g>
+    {{/inline}}
+    {{#eq tip1Type "line-arrow"}}
+        {{> lineArrow fillColor=lineColor strokeWidth=lineWidth points="0,4 4,0 5,1 2,4 5,7 4,8" tip="start" }}
+    {{/eq}}
+    {{#eq tip2Type "line-arrow"}}
+        {{> lineArrow fillColor=lineColor strokeWidth=lineWidth points="0,1 1,0 5,4 1,8 0,7 3,4" tip="end" }}
+    {{/eq}}
+    {{#*inline "solidArrow"}}
+        <g fill="{{fillColor}}"
+            style="
+                transform:
+                {{#eq tip "start"}}
+                    translate(0, calc(50% - calc(calc(calc({{strokeWidth}}px * 0.75) * 8) / 2)))
+                {{/eq}}
+                {{#eq tip "end"}}
+                    translate(
+                        calc(100% - calc(calc({{strokeWidth}}px * 0.75) * 5)),
+                        calc(50% - calc(calc(calc({{strokeWidth}}px * 0.75) * 8) / 2))
+                    )
+                {{/eq}}
+                scale(calc({{strokeWidth}} * 0.75));
+        ">
+            <polygon points="{{points}}" />
+        </g>
+    {{/inline}}
+    {{#eq tip1Type "solid-arrow"}}
+        {{> solidArrow fillColor=lineColor strokeWidth=lineWidth points="0,4 5,1 5,7" tip="start" }}
+    {{/eq}}
+    {{#eq tip2Type "solid-arrow"}}
+        {{> solidArrow fillColor=lineColor strokeWidth=lineWidth points="0,1 0,7 5,4" tip="end" }}
+    {{/eq}}
+    {{#eq tip1Type "circle"}}
+        <g fill="{{lineColor}}" style="
+            transform:
+                translate(calc({{lineWidth}}px * 1.5), 50%)
+                scale(1.5);
+        ">
+            <circle r="{{lineWidth}}"></circle>
+        </g>
+    {{/eq}}
+    {{#eq tip2Type "circle"}}
+        <g fill="{{lineColor}}" style="
+            transform:
+                translate(calc(100% - calc({{lineWidth}}px * 1.5)), 50%)
+                scale(1.5);
+        ">
+            <circle r="{{lineWidth}}"></circle>
+        </g>
+    {{/eq}}
+</svg><div class="line"
+    style="border-color: {{lineColor}};
+    position: absolute;
+    {{#if lineStyle }}border-style: {{lineStyle}};{{/if}}
+        height: {{lineWidth}}px;
+        border-width: {{lineWidth}}px 0 0 0;
+        top: calc(50% - calc({{lineWidth}}px / 2));
+        left: 0;
+        width: 100%;
+        {{#eq tip1Type "squared"}}
+            {{#eq tip2Type "squared"}}{{else}}
+                width: calc(100% - {{lineWidth}}px);
+                left: 0;
+                {{#eq tip2Type "line-arrow"}}
+                    width: calc(100% - {{lineWidth}}px);
+                {{/eq}}
+            {{/eq}}
+        {{else}}
+            {{#eq tip2Type "squared"}}
+                width: calc(100% - {{lineWidth}}px);
+                left: {{lineWidth}}px;
+            {{else}}
+                width: calc(100% - calc({{lineWidth}}px * 2));
+                left: {{lineWidth}}px;
+            {{/eq}}
+        {{/eq}}"
+    ></div></div></script>
+    <script type="text/x-handlebars-template" id="hbs-rectangle"
+            data-width=""
+            data-height=""
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="rectangle-container"
+    style="
+    {{#if useGradient}}
+        {{parseJSON "gb" gradient}}
+        {{#eq gb.type 'linear'}}
+            background: linear-gradient({{gb.angle}}deg, {{gb.color1}}, {{gb.color2}});
+        {{else}}
+            background: radial-gradient(circle, {{gb.color1}}, {{gb.color2}});
+        {{/eq}}
+    {{else}}
+        background-color: {{backgroundColor}};
+    {{/if}}
+    {{#if outline}}border: {{outlineWidth}}px solid {{outlineColor}};{{/if}}
+    {{#if roundBorder}}border-radius: {{borderRadius}}px;{{/if}}
+    width: 100%; height: 100%; box-sizing: border-box;"
+>
+</div></script>
+    <script type="text/x-handlebars-template" id="hbs-circle"
+            data-width=""
+            data-height=""
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="global-elements-circle" style="position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;"
+><svg version="1.1" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        {{{createGradientInSVG gradient uniqueID}}}
+
+        <symbol id="circle_{{uniqueID}}" viewBox="0 0 100 100" preserveAspectRatio="{{# if fit }}none{{else}}xMidYMid meet{{/if}}">
+            <circle
+                {{# if useGradient }}
+                    {{parseJSON "gb" gradient}}
+                    {{# eq gb.type 'linear'}}
+                        fill="url(#gradLinear_{{uniqueID}})"
+                    {{else}}
+                        fill="url(#gradRadial_{{uniqueID}})"
+                    {{/eq}}
+                {{else if backgroundColor }}
+                    fill="{{backgroundColor}}"
+                {{else}}
+                    fill="none"
+                {{/if}}
+                {{# if outline }}
+                    {{#if outlineColor }}stroke="{{outlineColor}}"{{/if}}
+                    {{#if outlineWidth }}stroke-width="{{outlineWidth}}"{{/if}}
+                    vector-effect="non-scaling-stroke"
+                {{/if}}
+                cx="50%"
+                cy="50%"
+            ></circle>
+        </symbol>
+    </defs>
+    <use xlink:href="#circle_{{uniqueID}}" width="100%" height="100%" />
+</svg></div></script>
+    <script type="text/x-handlebars-template" id="hbs-ellipse"
+            data-width=""
+            data-height=""
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="global-elements-ellipse" style="position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;"
+><svg version="1.1" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <symbol id="ellipse_{{uniqueID}}" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <ellipse
+                {{# if backgroundColor }}
+                    fill="{{backgroundColor}}"
+                {{else}}
+                    fill="none"
+                {{/if}}
+                {{# if outline }}
+                    {{#if outlineColor }}stroke="{{outlineColor}}"{{/if}}
+                    {{#if outlineWidth }}stroke-width="{{outlineWidth}}"{{/if}}
+                    vector-effect="non-scaling-stroke"
+                    rx="49"
+                    ry="49"
+                {{else}}
+                    rx="50"
+                    ry="50"
+                {{/if}}
+                cx="50"
+                cy="50"
+            ></ellipse>
+        </symbol>
+    </defs>
+    <use xlink:href="#ellipse_{{uniqueID}}" width="100%" height="100%" />
+</svg></div></script>
+    <script type="text/x-handlebars-template" id="hbs-triangle"
+            data-width=""
+            data-height=""
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="global-elements-triangle" style="position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;"
+><svg version="1.1" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        {{{createGradientInSVG gradient uniqueID}}}
+
+        <symbol id="triangle_{{uniqueID}}" viewBox="0 0 100 100" preserveAspectRatio="{{# if fit }}none{{else}}xMidYMid meet{{/if}}">
+            <polygon points="0,100 50,0 100,100"
+                {{# if useGradient }}
+                    {{parseJSON "gb" gradient}}
+                    {{# eq gb.type 'linear'}}
+                        fill="url(#gradLinear_{{uniqueID}})"
+                    {{else}}
+                        fill="url(#gradRadial_{{uniqueID}})"
+                    {{/eq}}
+                {{else if backgroundColor }}
+                    fill="{{backgroundColor}}"
+                {{else}}
+                    fill="none"
+                {{/if}}
+                {{#if outline }}
+                    {{#if outlineColor}}stroke="{{outlineColor}}"{{/if}}
+                    {{#if outlineWidth}}stroke-width="{{outlineWidth}}"{{/if}}
+                    vector-effect="non-scaling-stroke"
+                {{/if}}
+                class="triangle"
+            ></polygon>
+        </symbol>
+    </defs>
+    <use xlink:href="#triangle_{{uniqueID}}" width="100%" height="100%" />
+</svg></div></script>
+    <script type="text/x-handlebars-template" id="hbs-pentagon"
+            data-width=""
+            data-height=""
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="global-elements-pentagon" style="position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;"
+><svg version="1.1" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        {{{createGradientInSVG gradient uniqueID}}}
+
+        <symbol id="pentagon_{{uniqueID}}" viewBox="0 0 100 100" preserveAspectRatio="{{# if fit }}none{{else}}xMidYMid meet{{/if}}">
+            <polygon points="50,0 100,36 83.33,100 16.67,100 0,36"
+                {{# if useGradient }}
+                    {{parseJSON "gb" gradient}}
+                    {{# eq gb.type 'linear'}}
+                        fill="url(#gradLinear_{{uniqueID}})"
+                    {{else}}
+                        fill="url(#gradRadial_{{uniqueID}})"
+                    {{/eq}}
+                {{else if backgroundColor }}
+                    fill="{{backgroundColor}}"
+                {{else}}
+                    fill="none"
+                {{/if}}
+                {{#if outline }}
+                    {{#if outlineColor }}stroke="{{outlineColor}}"{{/if}}
+                    {{#if outlineWidth }}stroke-width="{{outlineWidth}}"{{/if}}
+                    vector-effect="non-scaling-stroke"
+                {{/if}}
+            />
+        </symbol>
+    </defs>
+    <use xlink:href="#pentagon_{{uniqueID}}" width="100%" height="100%"></use>
+</svg></div></script>
+    <script type="text/x-handlebars-template" id="hbs-hexagon"
+            data-width=""
+            data-height=""
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="global-elements-hexagon" style="position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;"
+><svg version="1.1" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        {{{createGradientInSVG gradient uniqueID}}}
+
+        <symbol id="hexagon_{{uniqueID}}" viewBox="0 0 100 100" preserveAspectRatio="{{# if fit }}none{{else}}xMidYMid meet{{/if}}">
+            <polygon points="50,0 100,24.5 100,73.5 50,100 0,73.5 0,24.5"
+                {{# if useGradient }}
+                    {{parseJSON "gb" gradient}}
+                    {{# eq gb.type 'linear'}}
+                        fill="url(#gradLinear_{{uniqueID}})"
+                    {{else}}
+                        fill="url(#gradRadial_{{uniqueID}})"
+                    {{/eq}}
+                {{else if backgroundColor }}
+                    fill="{{backgroundColor}}"
+                {{else}}
+                    fill="none"
+                {{/if}}
+                {{#if outline }}
+                    {{#if outlineColor }}stroke="{{outlineColor}}"{{/if}}
+                    {{#if outlineWidth }}stroke-width="{{outlineWidth}}"{{/if}}
+                    vector-effect="non-scaling-stroke"
+                {{/if}}
+            />
+        </symbol>
+    </defs>
+    <use xlink:href="#hexagon_{{uniqueID}}" width="100%" height="100%"></use>
+</svg></div></script>
+    <script type="text/x-handlebars-template" id="hbs-text"
+            data-width=""
+            data-height=""
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="global-elements-text"
+    style="
+    display: -webkit-flex;
+    display: flex;
+    {{#if verticalAlign}}align-items: {{verticalAlign}};{{/if}}
+    {{#if fitToArea}}
+        white-space: nowrap;
+    {{else}}
+        {{#if fontSize}}font-size: {{fontSize}}px;{{/if}}
+        {{#if showOverflow}}overflow: visible;{{else}}overflow: hidden;{{/if}}
+        {{#if horizontalAlign}}
+            justify-content: {{horizontalAlign}};
+        {{/if}}
+        {{#eq horizontalAlign "flex-start"}}text-align: left;{{/eq}}
+        {{#eq horizontalAlign "center"}}text-align: center;{{/eq}}
+        {{#eq horizontalAlign "flex-end"}}text-align: right;{{/eq}}
+    {{/if}}
+    width: 100%; height: 100%;"
+>
+<div style="
+    {{#if fontFamily}}font-family: {{fontFamily}};{{/if}}
+    {{#if useGradient}}
+        {{parseJSON "gb" gradient}}
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent;
+        {{#eq gb.type 'linear'}}
+            background-image: linear-gradient({{gb.angle}}deg, {{gb.color1}}, {{gb.color2}});
+        {{else}}
+            background-image: radial-gradient(circle, {{gb.color1}}, {{gb.color2}});
+        {{/eq}}
+    {{else}}
+        {{#if bold}}font-weight: bold;{{/if}}
+        {{#if italics}}font-style: italic;{{/if}}
+        {{#if underline}}text-decoration: underline;{{/if}}
+        {{#if fontColor}}color: {{fontColor}};{{/if}}
+        {{#if textShadow}}text-shadow: {{shadowX}}px {{shadowY}}px {{shadowBlur}}px {{textShadowColor}};{{/if}}
+    {{/if}}
+    {{#if lineHeight}}line-height: {{lineHeight}};{{/if}}
+    {{#if textWrap}}
+        white-space: break-spaces;
+        {{#if justify}}
+            text-align: justify;
+        {{/if}}
+    {{else}}
+        white-space: nowrap;
+    {{/if}}
+">{{#if escapeHtml}}{{text}}{{else}}{{{text}}}{{/if}}</div>
+</div></script>
+    <script type="text/javascript" id="onTemplateRender-global_image">
+        function onTemplateRender_global_image(id, target, items, properties, meta) {
+            $(target).find('img').xiboImageRender(properties);
+        }
+    </script>
+    <script type="text/javascript" id="onTemplateRender-date_advanced">
+        function onTemplateRender_date_advanced(id, target, items, properties, meta) {
+            var $dateEl = $(target).find('.date-advanced');
+var useCurrentDate = (properties.currentDate == 1);
+
+if (useCurrentDate) {
+    // Use current date
+
+    let firstRun = true;
+
+    var offset = properties.offset || 0;
+    // Clear previous interval if exists
+    if (window['updateInterval_' + id]) {
+        clearInterval(window['updateInterval_' + id]);
+    }
+
+    // Update every second
+    window['updateInterval_' + id] = setInterval(function() {
+        // If element was removed, clear interval
+        if(!$dateEl.is(':visible')) {
+            clearInterval(window['updateInterval_' + id]);
+            return;
+        }
+
+        // Update date value
+        var currentDate = moment().add(offset, "m");
+
+        // Check for lang config
+        if (properties.lang !== null && String(properties.lang).length > 0) {
+            currentDate.locale(properties.lang);
+        }
+
+        $dateEl.html(currentDate.format(properties.dateFormat));
+
+        if (firstRun && properties.fitToArea) {
+            // Set target for the text
+            properties.fitTarget = '.date-advanced';
+
+            var $selector = $(target).is('.global-elements-date-advanced') ?
+                $(target) : $(target).find('.global-elements-date-advanced');
+
+            // Scale text to container
+            $(target).find('.global-elements-date-advanced').xiboTextScaler(properties);
+
+            firstRun = false;
+        }
+    }, 1000);
+} else {
+    // Use custom date
+
+    // If date is not defined, don't render
+    if (String(properties.date).length === 0) {
+        $dateEl.html('');
+        return;
+    }
+
+    var customDate = moment(properties.date);
+
+    // Check for lang config
+    if (properties.lang !== null && String(properties.lang).length > 0) {
+        customDate.locale(properties.lang);
+    }
+
+    // Format the date with the dateFormat property
+    var formattedDate = customDate.format(properties.dateFormat);
+
+    // Set the date div value to the formatted date
+    $dateEl.html(formattedDate);
+
+    if (properties.fitToArea) {
+        // Set target for the text
+        properties.fitTarget = '.date-advanced';
+
+        var $selector = $(target).is('.global-elements-date-advanced') ?
+            $(target) : $(target).find('.global-elements-date-advanced');
+
+        // Scale text to container
+        $selector.xiboTextScaler(properties);
+    }
+}
+        }
+    </script>
+    <script type="text/javascript" id="onTemplateRender-circle">
+        function onTemplateRender_circle(id, target, items, properties, meta) {
+            // Calculate circle radius based on outlineWidth
+    var circleRadius = properties.outline == 1 ?
+        50 - (properties.outlineWidth / 4) : 50;
+    var selector = $(target).is('.global-elements-circle') ? '' : '.global-elements-circle ';
+    $(target).find(selector + 'svg symbol circle').attr('r', circleRadius);
+        }
+    </script>
+    <script type="text/javascript" id="onTemplateRender-triangle">
+        function onTemplateRender_triangle(id, target, items, properties, meta) {
+            // Calculate points based on outlineWidth
+if(properties.outline == 1) {
+    var outlineDeltaX = properties.outlineWidth / 4;
+    var outlineDeltaY = properties.outlineWidth / 3;
+
+    var calcPoints = outlineDeltaX + ',' + (100 - outlineDeltaY) + ' ' +
+        '50,' + outlineDeltaY + ' ' +
+        (100 - outlineDeltaX) + ',' + (100-outlineDeltaY);
+    $(target).find('.global-elements-triangle svg symbol polygon').attr('points', calcPoints);
+}
+        }
+    </script>
+    <script type="text/javascript" id="onTemplateRender-pentagon">
+        function onTemplateRender_pentagon(id, target, items, properties, meta) {
+            // Calculate points based on outlineWidth
+if(properties.outline == 1) {
+    var outlineDelta = properties.outlineWidth / 4;
+    var calcPoints = '50,' + outlineDelta + ' ' +
+        (100 - outlineDelta) + ',36 ' +
+        '83.33,' + (100 - outlineDelta) + ' ' +
+        '16.67,' + (100 - outlineDelta) + ' ' +
+        outlineDelta + ',36';
+    $(target).find('.global-elements-pentagon svg symbol polygon').attr('points', calcPoints);
+}
+        }
+    </script>
+    <script type="text/javascript" id="onTemplateRender-hexagon">
+        function onTemplateRender_hexagon(id, target, items, properties, meta) {
+            // Calculate points based on outlineWidth
+if(properties.outline == 1) {
+    var outlineDelta = properties.outlineWidth / 4;
+    var calcPoints = '50,' + outlineDelta + ' ' +
+        (100 - outlineDelta) + ',24.5 ' +
+        (100 - outlineDelta) + ',73.5 ' +
+        '50,' + (100 - outlineDelta) + ' ' +
+        outlineDelta + ',73.5' + ' ' +
+        outlineDelta + ',24.5';
+    $(target).find('.global-elements-hexagon svg symbol polygon').attr('points', calcPoints);
+}
+        }
+    </script>
+    <script type="text/javascript" id="onTemplateRender-text">
+        function onTemplateRender_text(id, target, items, properties, meta) {
+            if(properties.fitToArea) {
+    // Set target for the text
+    properties.fitTarget = 'div';
+
+    var $selector = $(target).is('.global-elements-text') ?
+        $(target) : $(target).find('.global-elements-text');
+
+    // Scale text to container
+    $selector.xiboTextScaler(properties);
+}
+        }
+    </script>
+    <!-- NUMITEMS=0 -->
+    <!-- DURATION=1 -->
+</html>

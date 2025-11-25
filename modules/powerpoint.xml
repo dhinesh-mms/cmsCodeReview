@@ -1,0 +1,32 @@
+<!--
+ * Oasys Digital Signage
+ * 
+ * 
+ */ -->
+<module>
+    <id>core-powerpoint</id>
+    <name>PowerPoint</name>
+    <author>Core</author>
+    <description>Upload a PowerPoint file to assign to Layouts</description>
+    <icon>fa fa-file-powerpoint-o</icon>
+    <class></class>
+    <type>powerpoint</type>
+    <dataType></dataType>
+    <schemaVersion>1</schemaVersion>
+    <assignable>1</assignable>
+    <regionSpecific>0</regionSpecific>
+    <renderAs>native</renderAs>
+    <defaultDuration>10</defaultDuration>
+    <settings>
+        <property id="validExtensions" type="text">
+            <title>Valid Extensions</title>
+            <helpText>The Extensions allowed on files uploaded using this module. Comma Separated.</helpText>
+            <default>ppt,pps,pptx</default>
+        </property>
+    </settings>
+    <properties></properties>
+    <preview></preview>
+    <stencil>
+        <twig><![CDATA[]]></twig>
+    </stencil>
+</module>

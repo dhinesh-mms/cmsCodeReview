@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Oasys Digital Signage</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=[[ViewPortWidth]]" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Copyright 2006-2025 Xibo Signage Ltd. Part of the Xibo Open Source Digital Signage Solution. Released under the AGPLv3 or later. -->
+        <script type="text/javascript" src="[[PlayerBundle]]"></script>
+        <link href="[[FontBundle]]" rel="stylesheet">
+                <style type="text/css">
+            body {
+                margin: 0;
+                overflow: hidden;
+                font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+            }
+            h1, h2, h3, h4, p {
+                margin-top: 0;
+            }
+            #iframe {
+                border: 0;
+            }
+            .cycle-slide p, p.cycle-slide {
+                margin-bottom:0;
+            }
+        </style>
+                <style type="text/css">
+                        body { background-color: #eb9b9b !important; }
+                    </style>
+            </head>
+    <body>
+        <div id="content"></div>
+            
+<script type="text/javascript">
+    
+</script>
+        
+            </body>
+    <script type="text/javascript">
+        var xiboICTargetId = 337;
+        xiboIC.setTargetId(xiboICTargetId);
+        window.globalOptions = {
+          originalWidth: 1920,
+          originalHeight: 129,
+          totalDuration: 40,
+          cmsDateFormat: 'Y-m-d H:i',
+          locale: 'en-GB',
+        };
+        var widgetData = [];
+                widgetData.push({"widgetId":337,"templateId":null,"sample":null,"properties":{"text":"<p><span style=\"background-color:hsl(0,0%,0%);color:hsl(0,0%,100%);font-size:36px;\"><strong>Powered by Digital Signage Ltd<\/strong><\/span><\/p>","mediaSnippets":null,"backgroundColor":"#eb9b9b","effect":"marqueeLeft","speed":3,"marqueeInlineSelector":"p","seeAdvancedFields":0,"javaScript":"","styleSheet":""},"isValid":true,"isRepeatData":true,"duration":40,"calculatedDuration":40,"isDataExpected":false,"url":null,"data":null});
+        
+        var elements = [];
+            </script>
+    <script type="text/javascript" id="onInitialize-337">
+        function onInitialize_337(id, target, properties, meta) {
+          // id: The id of the widget
+// target: The target element to render
+// properties: The properties for the widget
+// -------------------------------------------
+var hasClock = false;
+
+// Parse any Clock elements
+if (properties.text && properties.text.indexOf('[Clock]') >= 0) {
+    hasClock = true;
+    properties.text = properties.text.replace('[Clock]', '[HH:mm]');
+}
+
+if (properties.text && properties.text.indexOf('[Clock|') >= 0) {
+    hasClock = true;
+    properties.text = properties.text.replace('[Clock|', '[');
+}
+
+if (properties.text && properties.text.indexOf('[Date]') >= 0) {
+    hasClock = true;
+    properties.text = properties.text.replace('[Date]', '[DD/MM/YYYY]');
+}
+
+if (properties.text && properties.text.indexOf('[Date|') >= 0) {
+    hasClock = true;
+    properties.text = properties.text.replace('[Date|', '[');
+}
+
+if (hasClock) {
+    // Use regex to out the bit between the [] brackets and use that as the format mask for moment.
+    var text = properties.text;
+    var regex = /\[.*?\]/g;
+
+    properties.text = text.replace(regex, function (match) {
+        return '<span class="clock" format="' + match.replace('[', '').replace(']', '') + '"></span>';
+    });
+
+    // Set moment locale
+    moment.locale(globalOptions.locale);
+}
+
+// Save hasClock as global variable
+xiboIC.set(id, 'hasClock', hasClock);
+        }
+    </script>
+    <script type="text/javascript" id="onRender-337">
+        function onRender_337(id, target, items, properties, meta) {
+          // Module renderer options
+// id: The id of the widget
+// target: The target element to render
+// properties: The properties for the widget
+
+// Send property type  = text
+properties.type = 'text';
+
+// Replace content with the parsed text
+$(target).find('#content').html(properties.text);
+
+// Scale the layout
+$('body').xiboLayoutScaler(properties);
+
+$(target).xiboTextRender(Object.assign(properties, globalOptions), $(target).find('#content > *'));
+
+// Image render
+$(target).find('img').xiboImageRender(properties);
+        }
+    </script>
+    <script type="text/javascript" id="onVisible-337">
+        function onVisible_337(id, target, items, properties, meta) {
+          // If we have a clock, create method and start it
+if (xiboIC.get(id, 'hasClock')) {
+    function updateClock() {
+        $(".clock").each(function() {
+            $(this).html(moment().format($(this).attr("format")));
+        });
+    }
+
+    // Start the first time
+    updateClock();
+
+    // Update every second
+    setInterval(updateClock, 1000);
+}
+
+// Start effects for this widget
+$(target).xiboLayoutAnimate(properties);
+        }
+    </script>
+    <!-- NUMITEMS=0 -->
+    <!-- DURATION=40 -->
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Xibo Open Source Digital Signage</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=[[ViewPortWidth]]" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Copyright 2006-2024 Xibo Signage Ltd. Part of the Xibo Open Source Digital Signage Solution. Released under the AGPLv3 or later. -->
+        <script type="text/javascript" src="[[PlayerBundle]]"></script>
+        <link href="[[FontBundle]]" rel="stylesheet">
+                <style type="text/css">
+            body {
+                margin: 0;
+                overflow: hidden;
+                font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+            }
+            h1, h2, h3, h4, p {
+                margin-top: 0;
+            }
+            #iframe {
+                border: 0;
+            }
+            .cycle-slide p, p.cycle-slide {
+                margin-bottom:0;
+            }
+        </style>
+                <style type="text/css">
+                        body {
+            font-family: "Helvetica", "Arial", sans-serif;
+        line-height: 1;
+}
+
+#content {
+    font-size: 0;
+}
+
+.container {
+    width: 350px !important;
+    height: 650px !important;
+    display: inline-block;
+}
+
+.social-col {
+    float: left;
+    position: relative;
+    min-height: 1px;
+}
+
+.social {
+    overflow: hidden;
+    border: 1px solid #ddd;
+    width: 340px;
+    height: 640px;
+    margin: 5px;
+}
+
+.header {
+    font-size: 1rem;
+    background: #1da1f2;
+    width: 100%;
+    height: 110px;
+}
+
+.image-div {
+    overflow: hidden;
+    height: 100%;
+    width: 30%;
+}
+
+.user {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 35px;
+    letter-spacing: 1px;
+    width: 64%;
+    padding: 3%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.image-div img {
+    border-radius: 50%;
+    position: absolute;
+    width: 70px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%);
+    border: 3px solid #ffffff;
+}
+
+.body {
+    background: #ffffff;
+    height: 530px;
+    position: relative;
+}
+
+.main-text {
+    font-size: 24px;
+    padding: 24px 16px;
+    line-height: 150%;
+    color: #4d4d4d;
+    height: 450px;
+}
+
+.date {
+    width: 240px;
+    padding: 0 16px;
+    font-size: 14px;
+    color: #4d4d4d
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+}
+
+.logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+                    </style>
+            </head>
+    <body>
+        <div id="content"></div>
+            </body>
+    <script type="text/javascript">
+        var xiboICTargetId = 14;
+        xiboIC.setTargetId(xiboICTargetId);
+        window.globalOptions = {
+          originalWidth: 1930,
+          originalHeight: 1210,
+          totalDuration: 60,
+          cmsDateFormat: 'Y-m-d H:i',
+          locale: 'en-GB',
+        };
+        var widgetData = [];
+                widgetData.push({"widgetId":14,"templateId":"social_media_static_12","sample":[{"date":"2000-01-01T01:00:30+00:00","text":"This is a sample mastodon text","location":"Mastodon location","photo":"[[assetId=mastodonContentPhoto]]","user":"@mastodon_user","screenName":"Mastodon user","userProfileImage":"[[assetId=mastodonProfilePhoto]]","userProfileImageMini":"[[assetId=mastodonProfilePhotoMini]]","userProfileImageBigger":"[[assetId=mastodonProfilePhotoBigger]]"},{"date":"2000-01-01T01:00:30+00:00","text":"This is a sample mastodon text","location":"Mastodon location","photo":"[[assetId=mastodonContentPhoto]]","user":"@mastodon_user","screenName":"Mastodon user","userProfileImage":"[[assetId=mastodonProfilePhoto]]","userProfileImageMini":"[[assetId=mastodonProfilePhotoMini]]","userProfileImageBigger":"[[assetId=mastodonProfilePhotoBigger]]"},{"date":"2000-01-01T01:00:30+00:00","text":"This is a sample mastodon text","location":"Mastodon location","photo":"[[assetId=mastodonContentPhoto]]","user":"@mastodon_user","screenName":"Mastodon user","userProfileImage":"[[assetId=mastodonProfilePhoto]]","userProfileImageMini":"[[assetId=mastodonProfilePhotoMini]]","userProfileImageBigger":"[[assetId=mastodonProfilePhotoBigger]]"},{"date":"2000-01-01T01:00:30+00:00","text":"This is a sample mastodon text","location":"Mastodon location","photo":"[[assetId=mastodonContentPhoto]]","user":"@mastodon_user","screenName":"Mastodon user","userProfileImage":"[[assetId=mastodonProfilePhoto]]","userProfileImageMini":"[[assetId=mastodonProfilePhotoMini]]","userProfileImageBigger":"[[assetId=mastodonProfilePhotoBigger]]"},{"date":"2000-01-01T01:00:30+00:00","text":"This is a sample mastodon text","location":"Mastodon location","photo":"[[assetId=mastodonContentPhoto]]","user":"@mastodon_user","screenName":"Mastodon user","userProfileImage":"[[assetId=mastodonProfilePhoto]]","userProfileImageMini":"[[assetId=mastodonProfilePhotoMini]]","userProfileImageBigger":"[[assetId=mastodonProfilePhotoBigger]]"}],"properties":{"hashtag":"","searchOn":"all","serverUrl":"","userName":"","numItems":15,"onlyMedia":0,"durationIsPerItem":0,"removeMentions":0,"removeHashtags":0,"removeUrls":1},"isValid":true,"isRepeatData":false,"duration":60,"calculatedDuration":60,"isDataExpected":true,"url":"[[dataUrl=14]]","data":"[[data=14]]","templateProperties":{"resultContent":"1","dateFormat":"YYYY-MM-DD HH:mm","itemsPerPage":5,"displayDirection":"0","fontFamily":"","postTextColor":"#4d4d4d","dateTextColor":"#4d4d4d","postBackground":"#ffffff","headerTextColor":"#ffffff","headerBackground":"#1da1f2","profileBorderColor":"#ffffff","effect":"noTransition","speed":1000,"alignmentH":"center","alignmentV":"middle"}});
+        
+        var elements = [];
+            </script>
+    <script type="text/x-handlebars-template" id="hbs-social_media_static_12"
+            data-width="350"
+            data-height="650"
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="container main-container">
+    <div class="social">
+        <div class="header">
+            <div class="social-col image-div">
+                <img src="{{userProfileImage}}"/>
+            </div>
+            <div class="social-col user">{{user}}</div>
+        </div>
+        <div class="body">
+            <div class="main-text">{{text}}</div>
+            <div class="social-col date">{{date}}</div>
+            <div class="social-col logo"><img class="img-responsive" src="[[assetAlias=providerLogo]]" /></div>
+        </div>
+    </div>
+</div></script>
+    <script type="text/javascript" id="onParseData-14">
+      function onParseData_14(item, properties, meta) {
+        // item - element to be parsed
+// properties - object containing the values to be evaluated/used
+if(properties.removeMentions == 1) {
+    item.text = item.text.replace(/@[^\s]+/g, '');
+}
+if(properties.removeHashtags == 1) {
+    item.text = item.text.replace(/#[^\s]+/g, '');
+}
+if(properties.removeUrls == 1) {
+    item.text = item.text.replace(/(https?:\/\/)?(www\.)?[-a-zA-Z0-9()@:%_\+.~#?&//=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g, '');
+}
+if(properties.dateFormat) {
+    item.date = moment(item.date).format(properties.dateFormat);
+}
+// Return the parsed item
+return item;
+      }
+    </script>
+    <script type="text/javascript" id="onTemplateRender-social_media_static_12">
+        function onTemplateRender_social_media_static_12(id, target, items, properties, meta) {
+            if (properties.dateFormat) {
+    $(target).find('.date').each((_idx, el)=> {
+        $(el).html(moment($(el).html()).format(properties.dateFormat));
+    });
+}
+
+$(target).xiboLayoutScaler(properties);
+$(target).xiboTextRender(properties, $(target).find('#content > .main-container'));
+$(target).find('img').xiboImageRender(properties);
+        }
+    </script>
+    <script type="text/javascript" id="onTemplateVisible-social_media_static_12">
+        function onTemplateVisible_social_media_static_12(id, target, items, properties, meta) {
+            // Start effects for this template
+$(target).xiboLayoutAnimate(properties);
+        }
+    </script>
+    <!-- NUMITEMS=15 -->
+    <!-- DURATION=60 -->
+</html>

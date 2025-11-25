@@ -1,0 +1,30 @@
+{#
+/*
+ * Oasys Digital Signage
+ * 
+ * 
+ */
+#}
+
+{% extends "form-base.twig" %}
+{% import "forms.twig" as forms %}
+
+{% block formTitle %}
+    {% trans "Delete all saved reports for " %}
+{% endblock %}
+
+{% block formButtons %}
+    {% trans "Cancel" %}, XiboDialogClose()
+    {% trans "Yes" %}, $("#deleteAllSavedReportForm").submit()
+{% endblock %}
+
+{% block formHtml %}
+    <div class="row">
+        <div class="col-md-12">
+            <form id="deleteAllSavedReportForm" class="XiboForm form-horizontal" method="post" action="{{ url_for("reportschedule.deleteall", {"id": reportSchedule.reportScheduleId}) }}">
+                {% set message %}{% trans "Are you sure you want to delete all saved report of this report schedule? This cannot be undone" %}{% endset %}
+                {{ forms.message(message) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

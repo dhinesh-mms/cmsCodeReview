@@ -1,0 +1,30 @@
+{#
+/*
+ * Oasys Digital Signage
+ * 
+ * 
+ */
+#}
+
+{% extends "form-base.twig" %}
+{% import "forms.twig" as forms %}
+
+{% block formTitle %}
+    {% trans "Clear DataSet cache" %}
+{% endblock %}
+
+{% block formButtons %}
+    {% trans "Cancel" %}, XiboDialogClose()
+    {% trans "Save" %}, $("#dataSetClearCacheForm").submit()
+{% endblock %}
+
+{% block formHtml %}
+    <div class="row">
+        <div class="col-md-12">
+            <form id="dataSetClearCacheForm" class="XiboForm form-horizontal" method="post" action="{{ url_for("dataSet.clear.cache", {"id": dataSet.dataSetId}) }}">
+                {% set message %}{% trans "Should the cache for this remote DataSet be cleared?" %}{% endset %}
+                {{ forms.message(message) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

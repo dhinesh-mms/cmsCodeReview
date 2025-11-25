@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Oasys Digital Signage</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=[[ViewPortWidth]]" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Copyright 2006-2025 Xibo Signage Ltd. Part of the Xibo Open Source Digital Signage Solution. Released under the AGPLv3 or later. -->
+        <script type="text/javascript" src="[[PlayerBundle]]"></script>
+        <link href="[[FontBundle]]" rel="stylesheet">
+                <style type="text/css">
+            body {
+                margin: 0;
+                overflow: hidden;
+                font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+            }
+            h1, h2, h3, h4, p {
+                margin-top: 0;
+            }
+            #iframe {
+                border: 0;
+            }
+            .cycle-slide p, p.cycle-slide {
+                margin-bottom:0;
+            }
+        </style>
+                <style type="text/css">
+                        body {
+    width: 600px !important;
+    height: 400px !important;
+}
+
+table {
+    color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+    width: 600px;
+    height: 400px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td, th {
+    border: 1px solid #CCC;
+    height: 30px;
+}
+
+td {
+    background: #ececec;
+    text-align: center;
+}
+
+tr.header td {
+    background: #d7d7d7;
+    font-weight: bolder;
+}
+
+tr.main-header td {
+    background: #747474;
+    color: #f1f1f1;
+    font-weight: bolder;
+}
+
+tr.main-header td { color: #f1f1f1 !important; }tr.main-header td { background: #747474 !important; }tr.header td { color: #333 !important; }tr.header td { background-color: #d7d7d7 !important; }tr:not(.header):not(.main-header) td { color: #333 !important; }tr:not(.header):not(.main-header) td { background-color: #ececec !important; }td { border-color: #ccc !important; }
+                    </style>
+            </head>
+    <body>
+        <div id="content"></div>
+            </body>
+    <script type="text/javascript">
+        var xiboICTargetId = 308;
+        xiboIC.setTargetId(xiboICTargetId);
+        window.globalOptions = {
+          originalWidth: 2100,
+          originalHeight: 1068,
+          totalDuration: 60,
+          cmsDateFormat: 'Y-m-d H:i',
+          locale: 'en-GB',
+        };
+        var widgetData = [];
+                widgetData.push({"widgetId":308,"templateId":null,"sample":null,"properties":{"countdownType":"1","countdownDuration":null,"countdownDate":"10\/10\/2010 10:10:10","alignmentH":"center","alignmentV":"middle","fontFamily":null,"headerTextColor":"#f1f1f1","headerBackgroundColor":"#747474","evenRowTextColor":"#333","evenRowBackgroundColor":"#d7d7d7","oddRowTextColor":"#333","oddRowBackgroundColor":"#ececec","borderColor":"#ccc"},"isValid":true,"isRepeatData":true,"duration":60,"calculatedDuration":60,"isDataExpected":false,"url":null,"data":null});
+        
+        var elements = [];
+            </script>
+    <script type="text/x-handlebars-template" id="hbs-module"
+            data-width="600"
+            data-height="400"
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="countdown-container">
+    <table>
+        <tr class="main-header">
+            <td colspan="2">Years</td>
+        </tr>
+        <tr>
+            <td colspan="2">[YY]</td>
+        </tr>
+        <tr class="header">
+            <td>Months</td>
+            <td>Weeks</td>
+        </tr>
+        <tr>
+            <td>[MM]</td>
+            <td>[WW]</td>
+        </tr>
+        <tr class="header">
+            <td>Days</td>
+            <td>Total Hours</td>
+        </tr>
+        <tr>
+            <td>[DD]</td>
+            <td>[hha]</td>
+        </tr>
+        <tr class="header">
+            <td>Total Minutes</td>
+            <td>Total Seconds</td>
+        </tr>
+        <tr>
+            <td>[mma]</td>
+            <td>[ssa]</td>
+        </tr>
+    </table>
+</div></script>
+    <script type="text/javascript" id="onRender-308">
+        function onRender_308(id, target, items, properties, meta) {
+          // Make replacements on render for all templates
+var $countdownContainer = $('.countdown-container', target);
+
+// Get countdown container html
+var countdownHTML = $countdownContainer.html();
+
+// Make replacements
+var text = countdownHTML;
+var regex = /\[.*?\]/g;
+countdownHTML = text.replace(regex, function (match) {
+    var replacement = '';
+    var matchParsed = match.replace('[', '').replace(']', '');
+
+    // Replace tags
+    switch (matchParsed) {
+        case 'ss':
+            replacement = '<span class="seconds"></span>';
+            break;
+        case 'ssa':
+            replacement = '<span class="secondsAll"></span>';
+            break;
+        case 'mm':
+            replacement = '<span class="minutes"></span>';
+            break;
+        case 'mma':
+            replacement = '<span class="minutesAll"></span>';
+            break;
+        case 'hh':
+            replacement = '<span class="hours"></span>';
+            break;
+        case 'hha':
+            replacement = '<span class="hoursAll"></span>';
+            break;
+        case 'DD':
+            replacement = '<span class="days"></span>';
+            break;
+        case 'WW':
+            replacement = '<span class="weeks"></span>';
+            break;
+        case 'MM':
+            replacement = '<span class="months"></span>';
+            break;
+        case 'YY':
+            replacement = '<span class="years"></span>';
+            break;
+        default:
+            replacement = 'NULL';
+            break;
+    }
+
+    return replacement;
+});
+
+// Attach html back to container
+$countdownContainer.html(countdownHTML);
+
+// Scale the layout
+$(target).xiboLayoutScaler(properties);
+
+// Render the countdown
+var $contentContainer = $(target).find('#content');
+$contentContainer.xiboCountdownRender(properties, $contentContainer.html());
+        }
+    </script>
+    <!-- NUMITEMS=0 -->
+    <!-- DURATION=60 -->
+</html>

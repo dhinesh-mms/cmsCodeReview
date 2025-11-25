@@ -1,0 +1,14 @@
+[2024-12-20 12:06:25] INSTALL.INFO: Installer Step 1 [] {"uid":"9385183"}
+[2024-12-20 12:06:31] INSTALL.INFO: Installer Step 1 [] {"uid":"5106556"}
+[2024-12-20 12:06:33] INSTALL.INFO: Installer Step 2 [] {"uid":"1802e27"}
+[2024-12-20 12:08:44] INSTALL.INFO: Installer Step 3 [] {"uid":"257015b"}
+[2024-12-20 12:08:44] INSTALL.INFO: Setting unlimited max execution time. [] {"uid":"257015b"}
+[2024-12-20 12:08:52] INSTALL.INFO: Installer Step 4 [] {"uid":"d2e669b"}
+[2024-12-20 12:08:58] INSTALL.INFO: Installer Step 5 [] {"uid":"3b33d2c"}
+[2024-12-20 12:08:58] INSTALL.INFO: Installer Step 6 [] {"uid":"965f1f7"}
+[2024-12-20 12:24:26] INSTALL.INFO: Installer Step 6 [] {"uid":"5dc9bb4"}
+[2024-12-20 12:24:44] INSTALL.INFO: Installer Step 7 [] {"uid":"58cf666"}
+[2024-12-20 12:24:44] INSTALL.INFO: Installation Complete. Redirecting to /cms412/web/login [] {"uid":"58cf666"}
+[2025-03-21 06:28:48] INSTALL.INFO: Installer Step 1 [] {"uid":"ee3c03f"}
+[2025-03-21 06:29:01] INSTALL.INFO: Installer Step 1 [] {"uid":"2f6bb64"}
+[2025-03-21 06:29:06] INSTALL.INFO: Installer Step 2 [] {"uid":"7debd92"}

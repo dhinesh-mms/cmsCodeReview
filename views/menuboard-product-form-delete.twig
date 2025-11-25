@@ -1,0 +1,30 @@
+{#
+/*
+ * Oasys Digital Signage
+ * 
+ * 
+ */
+#}
+
+{% extends "form-base.twig" %}
+{% import "forms.twig" as forms %}
+
+{% block formTitle %}
+    {% trans "Delete Menu Board Product" %}
+{% endblock %}
+
+{% block formButtons %}
+    {% trans "Cancel" %}, XiboDialogClose()
+    {% trans "Yes" %}, $("#menuBoardProductDeleteForm").submit()
+{% endblock %}
+
+{% block formHtml %}
+    <div class="row">
+        <div class="col-md-12">
+            <form id="menuBoardProductDeleteForm" class="XiboForm form-horizontal" method="delete" action="{{ url_for("menuBoard.product.delete", {"id": menuBoardProduct.menuProductId}) }}">
+                {% set message %}{% trans "Are you sure you want to delete this Menu Board Product? This cannot be undone" %}{% endset %}
+                {{ forms.message(message) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

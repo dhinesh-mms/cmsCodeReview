@@ -1,0 +1,1 @@
+$((function(){const n=$("#help-pane");n.find(".help-pane-icon").on("click",(()=>{n.find(".help-pane-card").toggle()})),n.find(".close-icon").on("click",(()=>{n.find(".help-pane-card").hide()}))}));

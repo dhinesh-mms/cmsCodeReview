@@ -1,0 +1,32 @@
+{#
+/*
+ * Oasys Digital Signage
+ * 
+ * 
+ */
+#}
+{% extends "form-base.twig" %}
+{% import "forms.twig" as forms %}
+
+{% block formTitle %}
+    {% trans "Delete Font" %}
+{% endblock %}
+
+{% block formButtons %}
+    {% trans "Cancel" %}, XiboDialogClose()
+    {% trans "Yes" %}, $("#fontDeleteForm").submit()
+{% endblock %}
+
+{% block formHtml %}
+    <div class="row">
+        <div class="col-md-12">
+            <form id="fontDeleteForm" class="XiboForm form-horizontal" method="delete" action="{{ url_for("font.delete", {"id": font.id}) }}">
+                {% set message %}{% trans "Are you sure you want to delete this file?" %}{% endset %}
+                {{ forms.message(message) }}
+
+                {% set message %}{% trans "Deleting a file cannot be reversed." %}{% endset %}
+                {{ forms.message(message) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{#
+/*
+ * Oasys Digital Signage
+ * 
+ * 
+ */
+#}
+
+{% extends "form-base.twig" %}
+{% import "forms.twig" as forms %}
+
+{% block formTitle %}
+    {% trans "Set Default Layout" %}
+{% endblock %}
+
+{% block formButtons %}
+    {% trans "Cancel" %}, XiboDialogClose()
+    {% trans "Save" %}, $("#displayDefaultLayoutForm").submit()
+{% endblock %}
+
+{% block formHtml %}
+    <div class="row">
+        <div class="col-md-12">
+            <form id="displayDefaultLayoutForm" class="XiboForm form-horizontal" method="put" action="{{ url_for("display.defaultlayout", {id: display.displayId}) }}">
+                {% set attributes = [
+                    { name: "data-search-url", value: url_for("layout.search") },
+                    { name: "data-search-term", value: "layout" },
+                    { name: "data-search-term-tags", value: "tags" },
+                    { name: "data-id-property", value: "layoutId" },
+                    { name: "data-text-property", value: "layout" },
+                    { name: "data-filter-options", value: '{"retired":"0"}' }
+                ] %}
+
+                {% set title %}{% trans "Default Layout" %}{% endset %}
+                {% set helpText %}{% trans "The Default Layout to Display where there is no other content." %}{% endset %}
+                {{ forms.dropdown("layoutId", "single", title, display.defaultLayoutId, layouts, "layoutId", "layout", helpText, "pagedSelect", "", "", "", attributes) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

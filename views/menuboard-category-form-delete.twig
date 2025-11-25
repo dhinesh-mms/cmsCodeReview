@@ -1,0 +1,30 @@
+{#
+/*
+ * Oasys Digital Signage
+ * 
+ * 
+ */
+#}
+
+{% extends "form-base.twig" %}
+{% import "forms.twig" as forms %}
+
+{% block formTitle %}
+    {% trans "Delete Menu Board Category" %}
+{% endblock %}
+
+{% block formButtons %}
+    {% trans "Cancel" %}, XiboDialogClose()
+    {% trans "Yes" %}, $("#menuBoardCategoryDeleteForm").submit()
+{% endblock %}
+
+{% block formHtml %}
+    <div class="row">
+        <div class="col-md-12">
+            <form id="menuBoardCategoryDeleteForm" class="XiboForm form-horizontal" method="delete" action="{{ url_for("menuBoard.category.delete", {"id": menuBoardCategory.menuCategoryId}) }}">
+                {% set message %}{% trans "Are you sure you want to delete this Menu Board Category? All Products linked to this Category will be removed as well. This cannot be undone" %}{% endset %}
+                {{ forms.message(message) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

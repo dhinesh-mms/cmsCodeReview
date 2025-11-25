@@ -1,0 +1,53 @@
+{#
+/*
+ * Oasys Digital Signage
+ * 
+ * 
+ */
+#}
+
+{% set randomId = random() %}
+
+{% extends "form-base.twig" %}
+{% import "forms.twig" as forms %}
+
+{% block formTitle %}
+    {% trans "Bandwidth Limit" %}
+{% endblock %}
+
+{% block formButtons %}
+    {% trans "Cancel" %}, XiboDialogClose()
+    {% trans "Save" %}, $("#displayFormSetBandwidthLimit").submit()
+{% endblock %}
+
+{% block formHtml %}
+    <div class="row">
+        <div class="col-md-12">
+            <form id="displayFormSetBandwidthLimit" class="XiboForm form-horizontal" method="put" action="{{ url_for("display.setBandwidthLimitMultiple", {id: display.displayId}) }}">
+                {% set setBandwidthMultipleMessage %}
+                    {% trans "Change Bandwidth Limit to all the selected displays." %}<br>
+                {% endset %}
+                {{ forms.message(setBandwidthMultipleMessage) }}
+                
+                {{ forms.hidden('ids', ids) }}
+
+                {% set title %}{% trans "Bandwidth limit" %}{% endset %}
+                {% set helpText %}{% trans "The bandwidth limit that should be applied. Enter 0 for no limit." %}{% endset %}
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label" for="bandwidthLimit">{{ title }}</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" name="bandwidthLimit" type="number" id="bandwidthLimit" min="0" value=""/>
+                        <span class="help-block">{{ helpText }}</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <select name="bandwidthLimitUnits" class="form-control">
+                            <option value="kb">KiB</option>
+                            <option value="mb">MiB</option>
+                            <option value="gb">GiB</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{#
+/*
+ * Oasys Digital Signage
+ * 
+ * 
+ */
+#}
+
+{% extends "form-base.twig" %}
+{% import "forms.twig" as forms %}
+
+{% block formTitle %}
+    {% trans "Collect Now" %}
+{% endblock %}
+
+{% block formButtons %}
+    {% trans "Cancel" %}, XiboDialogClose()
+    {% trans "Save" %}, $("#displayGroupCollectNow").submit()
+{% endblock %}
+
+{% block formHtml %}
+    <div class="row">
+        <div class="col-md-12">
+            <form id="displayGroupCollectNow" class="XiboForm form-horizontal" method="post" action="{{ url_for("displayGroup.action.collectNow", {id: displayGroup.displayGroupId}) }}">
+                {% set message %}{% trans "Are you sure you want to request a collection to occur?" %}{% endset %}
+                {{ forms.message(message) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{#
+/*
+ * Oasys Digital Signage
+ * 
+ * 
+ */
+#}
+
+{% extends "form-base.twig" %}
+{% import "forms.twig" as forms %}
+
+{% block formTitle %}
+    {% trans "Toggle Authorise" %}
+{% endblock %}
+
+{% block formButtons %}
+    {% trans "Cancel" %}, XiboDialogClose()
+    {% trans "Yes" %}, $("#displayAuthoriseForm").submit()
+{% endblock %}
+
+{% block formHtml %}
+    <div class="row">
+        <div class="col-md-12">
+            <form id="displayAuthoriseForm" class="XiboForm form-horizontal" method="put" action="{{ url_for("display.authorise", {id: display.displayId}) }}">
+                {% if display.licensed == 1 %}
+                    {% set message %}{% trans "Are you sure you want to de-authorise this Display?" %}{% endset %}
+                {% else %}
+                    {% set message %}{% trans "Are you sure you want to authorise this Display?" %}{% endset %}
+                {% endif %}
+                {{ forms.message(message) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

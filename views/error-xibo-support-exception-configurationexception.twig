@@ -1,0 +1,16 @@
+{#
+/*
+ * Oasys Digital Signage
+ * 
+ * 
+ */
+#}
+{% extends "non-authed.twig" %}
+
+{% block content %}
+    <h5>{% trans "Configuration Problem" %}</h5>
+    <p>
+        {{ globalError }}
+        {{ message }}
+    </p>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!--
+ * Oasys Digital Signage
+ * 
+ * 
+ */ -->
+<module>
+    <id>core-spacer</id>
+    <name>Spacer</name>
+    <author>Core</author>
+    <description>A module for making region empty for the duration</description>
+    <icon>fa fa-hourglass-o</icon>
+    <class></class>
+    <showIn>playlist</showIn>
+    <type>spacer</type>
+    <dataType></dataType>
+    <schemaVersion>1</schemaVersion>
+    <assignable>1</assignable>
+    <regionSpecific>1</regionSpecific>
+    <renderAs>html</renderAs>
+    <defaultDuration>60</defaultDuration>
+    <settings></settings>
+    <properties></properties>
+    <preview></preview>
+    <stencil>
+        <twig><![CDATA[]]></twig>
+    </stencil>
+</module>

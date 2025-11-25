@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Oasys Digital Signage</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=[[ViewPortWidth]]" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Copyright 2006-2025 Xibo Signage Ltd. Part of the Xibo Open Source Digital Signage Solution. Released under the AGPLv3 or later. -->
+        <script type="text/javascript" src="[[PlayerBundle]]"></script>
+        <link href="[[FontBundle]]" rel="stylesheet">
+                <style type="text/css">
+            body {
+                margin: 0;
+                overflow: hidden;
+                font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+            }
+            h1, h2, h3, h4, p {
+                margin-top: 0;
+            }
+            #iframe {
+                border: 0;
+            }
+            .cycle-slide p, p.cycle-slide {
+                margin-bottom:0;
+            }
+        </style>
+                <style type="text/css">
+                        body {
+    width: 640px !important;
+    height: 360px !important;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+#clockdiv {
+    font-family: sans-serif;
+    color: #fff;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 178px;
+}
+
+#clockdiv>div {
+    padding: 10px 15px;
+    border-radius: 4px;
+    background: #00BF96;
+    display: inline-block;
+    width: 250px;
+    margin: 10px 0;
+}
+
+#clockdiv div>span {
+    text-align: center;
+    padding: 15px 0;
+    width: 240px;
+    border-radius: 4px;
+    background: #00816A;
+    display: inline-block;
+}
+
+.smalltext {
+    padding-top: 5px;
+    font-size: 64px;
+}
+
+#clockdiv > div > span { background: #00816A; }#clockdiv > div > span { color: #fff; }#clockdiv > div { background: #00BF96; }#clockdiv > div { color: #fff; }.warning #clockdiv > div {background: darkorange;}.warning #clockdiv > div > span {background: orange;}.finished #clockdiv > div {background: darkred;}.finished #clockdiv > div > span {background: red;}
+                    </style>
+            </head>
+    <body>
+        <div id="content"></div>
+            </body>
+    <script type="text/javascript">
+        var xiboICTargetId = 379;
+        xiboIC.setTargetId(xiboICTargetId);
+        window.globalOptions = {
+          originalWidth: 300,
+          originalHeight: 180,
+          totalDuration: 60,
+          cmsDateFormat: 'Y-m-d H:i',
+          locale: 'en-GB',
+        };
+        var widgetData = [];
+                widgetData.push({"widgetId":379,"templateId":null,"sample":null,"properties":{"countdownType":"1","countdownDuration":null,"countdownDate":"10\/10\/2010 10:10:10","countdownWarningDuration":null,"countdownWarningDate":"","alignmentH":"center","alignmentV":"middle","innerBackgroundColor":"#00816A","innerFontFamily":null,"innerTextColor":"#fff","outerBackgroundColor":"#00BF96","labelFontFamily":null,"labelTextColor":"#fff","warningBackgroundColor1":"darkorange","warningBackgroundColor2":"orange","finishedBackgroundColor1":"darkred","finishedBackgroundColor2":"red"},"isValid":true,"isRepeatData":true,"duration":60,"calculatedDuration":60,"isDataExpected":false,"url":null,"data":null});
+        
+        var elements = [];
+            </script>
+    <script type="text/x-handlebars-template" id="hbs-module"
+            data-width="640"
+            data-height="360"
+            data-gap=""
+            data-extends-override=""
+            data-extends-with=""
+            data-escape-html=""
+    ><div class="countdown-container">
+    <div id="clockdiv">
+        <div>[mm]
+            <div class="smalltext">Minutes</div>
+        </div>
+        <div>[ss]
+            <div class="smalltext">Seconds</div>
+        </div>
+    </div>
+</div></script>
+    <script type="text/javascript" id="onRender-379">
+        function onRender_379(id, target, items, properties, meta) {
+          // Make replacements on render for all templates
+var $countdownContainer = $('.countdown-container', target);
+
+// Get countdown container html
+var countdownHTML = $countdownContainer.html();
+
+// Make replacements
+var text = countdownHTML;
+var regex = /\[.*?\]/g;
+countdownHTML = text.replace(regex, function (match) {
+    var replacement = '';
+    var matchParsed = match.replace('[', '').replace(']', '');
+
+    // Replace tags
+    switch (matchParsed) {
+        case 'ss':
+            replacement = '<span class="seconds"></span>';
+            break;
+        case 'ssa':
+            replacement = '<span class="secondsAll"></span>';
+            break;
+        case 'mm':
+            replacement = '<span class="minutes"></span>';
+            break;
+        case 'mma':
+            replacement = '<span class="minutesAll"></span>';
+            break;
+        case 'hh':
+            replacement = '<span class="hours"></span>';
+            break;
+        case 'hha':
+            replacement = '<span class="hoursAll"></span>';
+            break;
+        case 'DD':
+            replacement = '<span class="days"></span>';
+            break;
+        case 'WW':
+            replacement = '<span class="weeks"></span>';
+            break;
+        case 'MM':
+            replacement = '<span class="months"></span>';
+            break;
+        case 'YY':
+            replacement = '<span class="years"></span>';
+            break;
+        default:
+            replacement = 'NULL';
+            break;
+    }
+
+    return replacement;
+});
+
+// Attach html back to container
+$countdownContainer.html(countdownHTML);
+
+// Scale the layout
+$(target).xiboLayoutScaler(properties);
+
+// Render the countdown
+var $contentContainer = $(target).find('#content');
+$contentContainer.xiboCountdownRender(properties,$contentContainer.html());
+        }
+    </script>
+    <!-- NUMITEMS=0 -->
+    <!-- DURATION=60 -->
+</html>
