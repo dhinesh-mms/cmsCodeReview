@@ -1,8 +1,4 @@
-<!-- *
- * Oasys Digital Signage
- * 
- * 
- * -->
+
 <definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:xmds"
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/"
              targetNamespace="urn:xmds">

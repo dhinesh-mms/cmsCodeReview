@@ -1,8 +1,6 @@
 <?php
-/*
+/**
  * Oasys Digital Signage
- * 
- * 
  */
 
 // We need to define XIBO as the settings.php file is protected with a !defined check.

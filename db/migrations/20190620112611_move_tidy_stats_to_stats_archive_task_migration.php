@@ -1,10 +1,7 @@
 <?php
-/*
+/**
  * Oasys Digital Signage
- * 
- * 
  */
-
 use Phinx\Migration\AbstractMigration;
 
 class MoveTidyStatsToStatsArchiveTaskMigration extends AbstractMigration

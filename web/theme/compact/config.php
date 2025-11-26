@@ -1,8 +1,6 @@
 <?php
-/*
+/**
  * Oasys Digital Signage
- * 
- * 
  */
 
 $config = array(

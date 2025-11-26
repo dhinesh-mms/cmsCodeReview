@@ -1,10 +1,7 @@
 <?php
-/*
+/**
  * Oasys Digital Signage
- * 
- * 
  */
-
 namespace Xibo\XTR;
 
 use Carbon\Carbon;

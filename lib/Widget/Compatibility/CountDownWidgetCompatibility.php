@@ -1,10 +1,7 @@
 <?php
-/*
+/**
  * Oasys Digital Signage
- * 
- * 
  */
-
 namespace Xibo\Widget\Compatibility;
 
 use Xibo\Entity\Widget;

@@ -1,10 +1,7 @@
 <?php
-/*
+/**
  * Oasys Digital Signage
- * 
- * 
  */
-
 namespace Xibo\Listener\OnDisplayGroupLoad;
 
 use Xibo\Event\DisplayGroupLoadEvent;

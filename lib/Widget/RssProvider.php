@@ -1,10 +1,7 @@
 <?php
-/*
+/**
  * Oasys Digital Signage
- * 
- * 
  */
-
 namespace Xibo\Widget;
 
 use Carbon\Carbon;

@@ -1,10 +1,7 @@
 <?php
-/*
+/**
  * Oasys Digital Signage
- * 
- * 
  */
-
 namespace Xibo\Middleware;
 
 use Psr\Http\Message\ResponseInterface as Response;

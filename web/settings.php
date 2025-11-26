@@ -1,11 +1,8 @@
 <?php
 
-/*
+/**
  * Oasys Digital Signage
- * 
- * 
  */
-
 
 defined('XIBO') or die(__("Sorry, you are not allowed to directly access this page.") . "<br />" . __("Please press the back button in your browser."));
 

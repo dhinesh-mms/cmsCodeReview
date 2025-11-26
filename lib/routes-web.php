@@ -1,8 +1,6 @@
 <?php
-/*
+/**
  * Oasys Digital Signage
- * 
- * 
  */
 
 use Slim\Routing\RouteCollectorProxy;

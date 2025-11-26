@@ -1,8 +1,6 @@
 <?php
-/*
+/**
  * Oasys Digital Signage
- * 
- * 
  */
 
 use Phinx\Migration\AbstractMigration;
