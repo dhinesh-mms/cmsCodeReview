@@ -1,9 +1,7 @@
 <?php
 
-/*
+/**
  * Oasys Digital Signage
- * 
- * 
  */
 
 /**
