@@ -315,7 +315,7 @@ functions:
            ${PREPARE_SHELL}
            export PATH="${PHP_PATH}/bin:$PATH"
 
-           MONGODB_URI="mongodb://mhuser:pencil@127.0.0.1:27017" \
+           MONGODB_URI="mongodb://mhuser:M0ng0DB_S3cur3_P4ssw0rd!@127.0.0.1:27017" \
            TESTS="atlas-data-lake" \
            sh ${PROJECT_DIRECTORY}/.evergreen/run-tests.sh
 

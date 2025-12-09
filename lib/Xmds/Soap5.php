@@ -494,7 +494,7 @@ class Soap5 extends Soap4
 
         $display->save(Display::$saveOptionsMinimum);
         //$conn = oci_connect("xvsfdn", "AAssddff##1234567", "172.27.131.192:9027/neduuat");
-        $conn = oci_connect("xvsfdn", "Tr4nquil!L1m1t#2023", "172.27.131.192:9027/neduuat");
+        $conn = oci_connect("xvsfdn", "H4rb0r#S3cur1ty!2023", "172.27.131.192:9027/neduuat");
 
         if(!$conn) {
          $error = ocierror();
