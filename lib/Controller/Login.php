@@ -221,26 +221,34 @@ class Login extends Base
             $username = $parsedRequest->getString('username');
             $password = $parsedRequest->getString('password');
 
-            $jsonStr = $password;
+            $encrypted = $password;
             $passphrase = "ubie1mh5l416h";
-            $json = json_decode($jsonStr, true);
+
+            $json = json_decode($encrypted, true);
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                die('Error parsing JSON: ' . json_last_error_msg());
+            }
+
+            if (!isset($json['s']) || !isset($json['iv']) || !isset($json['ct'])) {
+                die('Invalid encrypted data');
+            }
+
             $salt = hex2bin($json["s"]);
             $iv = hex2bin($json["iv"]);
             $ct = base64_decode($json["ct"]);
-            $concatedPassphrase = $passphrase . $salt;
 
-            $md5 = [];
-            $md5[0] = hash('md5', $concatedPassphrase, true);
-            $result = $md5[0];
+            // CryptoJS uses OpenSSL's EVP_BytesToKey for key derivation
+            $key = '';
+            $key .= md5($passphrase . $salt, true);
+            $key .= md5($key . $passphrase . $salt, true);
+            $key = substr($key, 0, 32); // AES-256 key size is 32 bytes
 
-            for ($i = 1; $i < 3; $i++) {
-                $md5[$i] = hash('md5', $md5[$i - 1] . $concatedPassphrase, true);
-                $result .= $md5[$i];
+            $data = openssl_decrypt($ct, 'aes-256-cbc', $key, OPENSSL_RAW_DATA, $iv);
+            if ($data === false) {
+                die('Decryption failed: ' . openssl_error_string());
             }
 
-            $key = substr($result, 0, 32);
-            $data = openssl_decrypt($ct, 'aes-256-cbc', $key, OPENSSL_RAW_DATA, $iv);
-            $password = json_decode($data, true);
+            $password = $data;
 
 
             $this->getLog()->debug('Login with username ' . $username);

@@ -11,8 +11,7 @@
     <!-- Import CSS bundle from dist -->
     <script src="{{ theme.rootUri() }}dist/style.bundle.min.js?v={{ version }}&rev={{revision}}" nonce="{{ cspNonce }}"></script>
     <link href="{{ theme.uri("css/captcha.css") }}" rel="stylesheet" media="screen">
-    <script src="{{ theme.uri("libraries/cryptojs-aes.min.js") }}" nonce="{{ cspNonce }}"></script>
-    <script src="{{ theme.uri("libraries/cryptojs-aes-format.js") }}" nonce="{{ cspNonce }}"></script>
+   <script src="{{ theme.uri("libraries/crypto-js.min.js") }}" nonce="{{ cspNonce }}"></script>
 
 
     <style type="text/css">
@@ -169,20 +168,30 @@
             $("#login_submit").on("click", function () {
                 var valueToEncrypt = document.getElementById('password').value;
                 var pd = 'ubie1mh5l416h';
-                let encodedString = CryptoJSAesJson.encrypt(valueToEncrypt, pd);
-                document.getElementById("password").value = encodedString;
+                var encrypted = CryptoJS.AES.encrypt(valueToEncrypt, pd);
+                var encryptedObj = {
+                    ct: encrypted.ciphertext.toString(CryptoJS.enc.Base64),
+                    iv: encrypted.iv.toString(CryptoJS.enc.Hex),
+                    s: encrypted.salt.toString(CryptoJS.enc.Hex)
+                };
+                document.getElementById("password").value = JSON.stringify(encryptedObj);
                 $("#login-form").submit();
             });
 
-           $('input[type=text]').on('keyup', function(e) {
-            if (e.which == 13) {
-               var valueToEncrypt = document.getElementById('password').value;
-               var pd = 'ubie1mh5l416h';
-               let encodedString = CryptoJSAesJson.encrypt(valueToEncrypt, pd);
-               document.getElementById("password").value = encodedString;
-               $("#login-form").submit();
-            }
-          });
+            $('input[type=text]').on('keyup', function(e) {
+                if (e.which == 13) {
+                    var valueToEncrypt = document.getElementById('password').value;
+                    var pd = 'ubie1mh5l416h';
+                    var encrypted = CryptoJS.AES.encrypt(valueToEncrypt, pd);
+                    var encryptedObj = {
+                        ct: encrypted.ciphertext.toString(CryptoJS.enc.Base64),
+                        iv: encrypted.iv.toString(CryptoJS.enc.Hex),
+                        s: encrypted.salt.toString(CryptoJS.enc.Hex)
+                    };
+                    document.getElementById("password").value = JSON.stringify(encryptedObj);
+                    $("#login-form").submit();
+                }
+            });
             
         });
         

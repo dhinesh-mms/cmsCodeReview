@@ -66,7 +66,12 @@ class MockConfigService extends ConfigService
 }
 
 // Translator function
-function __($original)
+/*function __($original)
+{
+    return $original;
+}*/
+
+function translate($original)
 {
     return $original;
 }

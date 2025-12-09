@@ -44,13 +44,52 @@ class UploadHandler extends BlueImpUploadHandler
      * @param $file
      * @param $index
      */
+    // protected function handleFormData($file, $index)
+    // {
+    //     try {
+    //         $filePath = $this->getUploadDir() . $file->name;
+    //         $file->fileName = $file->name;
+
+    //         $name = htmlspecialchars($this->getParam($index, 'name', $file->name));
+    //         $file->name = $name;
+
+    //         // Check Library
+    //         if ($this->options['libraryQuotaFull']) {
+    //             throw new LibraryFullException(
+    //                 sprintf(
+    //                     __('Your library is full. Library Limit: %s K'),
+    //                     $this->options['libraryLimit']
+    //                 )
+    //             );
+    //         }
+
+    //         $this->getLogger()->debug('Upload complete for name: ' . $name . '. Index is ' . $index);
+
+    //         if ($this->postProcess !== null) {
+    //             $file = call_user_func($this->postProcess, $file, $this);
+    //         }
+    //     } catch (\Exception $exception) {
+    //         $this->getLogger()->error('Error uploading file : ' . $exception->getMessage());
+    //         $this->getLogger()->debug($exception->getTraceAsString());
+
+    //         // Unlink the temporary file
+    //         @unlink($filePath);
+    //         $this->state->setCommitState(false);
+    //         $file->error = $exception->getMessage();
+    //     }
+
+    //     return $file;
+    // }
+
     protected function handleFormData($file, $index)
     {
         try {
-            $filePath = $this->getUploadDir() . $file->name;
-            $file->fileName = $file->name;
+            $uploadDir = $this->getUploadDir();
+            $fileName = basename($file->name); // sanitize file name
+            $filePath = $uploadDir . DIRECTORY_SEPARATOR . $fileName;
+            $file->fileName = $fileName;
 
-            $name = htmlspecialchars($this->getParam($index, 'name', $file->name));
+            $name = htmlspecialchars($this->getParam($index, 'name', $fileName));
             $file->name = $name;
 
             // Check Library
@@ -73,7 +112,9 @@ class UploadHandler extends BlueImpUploadHandler
             $this->getLogger()->debug($exception->getTraceAsString());
 
             // Unlink the temporary file
-            @unlink($filePath);
+            if (file_exists($filePath) && is_writable($filePath)) {
+                unlink($filePath);
+            }
             $this->state->setCommitState(false);
             $file->error = $exception->getMessage();
         }

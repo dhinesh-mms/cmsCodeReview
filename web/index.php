@@ -109,7 +109,7 @@ if (\Xibo\Helper\Environment::isDevMode() || \Xibo\Helper\Environment::isForceDe
 
 
 
-$conn = oci_connect("xvsfdn", "AAssddff##1234567", "172.27.131.192:9027/neduuat");
+$conn = oci_connect("xvsfdn", "Tr4nquil!L1m1t#2023", "172.27.131.192:9027/neduuat");
 
         if(!$conn) {
           $error = ocierror();
@@ -158,18 +158,6 @@ $container->set('logger', function (ContainerInterface $container) {
 
     return $logger;
 });
-
-
-// $conn = oci_connect("xvsfdn", "AAssddff##1234567", "172.27.131.192:9027/neduuat");
-
-//         if(!$conn) {
-//           $error = ocierror();
-//            printf("Error was: %s", $error["message"]);
-//            die();
-//          //echo "Failed to connect to Oracle";
-//         // exit();
-//         }
-
 
 
 // Create a Slim application
