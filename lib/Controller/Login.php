@@ -226,29 +226,28 @@ class Login extends Base
 
             $json = json_decode($encrypted, true);
             if (json_last_error() !== JSON_ERROR_NONE) {
-                die('Error parsing JSON: ' . json_last_error_msg());
+              die('Error parsing JSON: ' . json_last_error_msg());
             }
 
             if (!isset($json['s']) || !isset($json['iv']) || !isset($json['ct'])) {
-                die('Invalid encrypted data');
+              die('Invalid encrypted data');
             }
 
-            $salt = hex2bin($json["s"]);
-            $iv = hex2bin($json["iv"]);
-            $ct = base64_decode($json["ct"]);
+            $salt = base64_decode($json['s']);
+            $iv = base64_decode($json['iv']);
+            $ct = base64_decode($json['ct']);
 
-            // CryptoJS uses OpenSSL's EVP_BytesToKey for key derivation
-            $key = '';
-            $key .= md5($passphrase . $salt, true);
-            $key .= md5($key . $passphrase . $salt, true);
-            $key = substr($key, 0, 32); // AES-256 key size is 32 bytes
+            // Split the ciphertext into the encrypted data and the authentication tag
+            $ciphertext = substr($ct, 0, -16);
+            $tag = substr($ct, -16);
 
-            $data = openssl_decrypt($ct, 'aes-256-cbc', $key, OPENSSL_RAW_DATA, $iv);
-            if ($data === false) {
-                die('Decryption failed: ' . openssl_error_string());
+            $keyMaterial = hash_pbkdf2('sha256', $passphrase, $salt, 100000, 32, true);
+            $decipher = openssl_decrypt($ciphertext, 'aes-256-gcm', $keyMaterial, OPENSSL_RAW_DATA, $iv, $tag);
+            if ($decipher === false) {
+              die('Decryption failed: ' . openssl_error_string());
             }
 
-            $password = $data;
+            $password = $decipher;
 
 
             $this->getLog()->debug('Login with username ' . $username);

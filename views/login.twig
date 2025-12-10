@@ -11,9 +11,7 @@
     <!-- Import CSS bundle from dist -->
     <script src="{{ theme.rootUri() }}dist/style.bundle.min.js?v={{ version }}&rev={{revision}}" nonce="{{ cspNonce }}"></script>
     <link href="{{ theme.uri("css/captcha.css") }}" rel="stylesheet" media="screen">
-   <script src="{{ theme.uri("libraries/crypto-js.min.js") }}" nonce="{{ cspNonce }}"></script>
-
-
+  
     <style type="text/css">
         html {
             font-size: 14px;
@@ -165,33 +163,85 @@
                 $("#reminder-form").addClass("d-none");
             });
 
-            $("#login_submit").on("click", function () {
-                var valueToEncrypt = document.getElementById('password').value;
-                var pd = 'ubie1mh5l416h';
-                var encrypted = CryptoJS.AES.encrypt(valueToEncrypt, pd);
-                var encryptedObj = {
-                    ct: encrypted.ciphertext.toString(CryptoJS.enc.Base64),
-                    iv: encrypted.iv.toString(CryptoJS.enc.Hex),
-                    s: encrypted.salt.toString(CryptoJS.enc.Hex)
-                };
-                document.getElementById("password").value = JSON.stringify(encryptedObj);
-                $("#login-form").submit();
+            $("#login_submit").on("click", async function () {
+              formsubmit();
+              return false;
             });
 
             $('input[type=text]').on('keyup', function(e) {
-                if (e.which == 13) {
-                    var valueToEncrypt = document.getElementById('password').value;
-                    var pd = 'ubie1mh5l416h';
-                    var encrypted = CryptoJS.AES.encrypt(valueToEncrypt, pd);
-                    var encryptedObj = {
-                        ct: encrypted.ciphertext.toString(CryptoJS.enc.Base64),
-                        iv: encrypted.iv.toString(CryptoJS.enc.Hex),
-                        s: encrypted.salt.toString(CryptoJS.enc.Hex)
-                    };
-                    document.getElementById("password").value = JSON.stringify(encryptedObj);
-                    $("#login-form").submit();
-                }
+              if (e.which == 13) {
+                formsubmit();
+                return false;
+              }
             });
+
+            async function formsubmit() {
+              try {
+                const valueToEncrypt = document.getElementById('password').value;
+                const pd = 'ubie1mh5l416h';
+                console.log(valueToEncrypt);
+
+                // Derive key from password
+                const encoder = new TextEncoder();
+                const keyMaterial = await window.crypto.subtle.importKey(
+                  "raw",
+                  encoder.encode(pd),
+                  { name: "PBKDF2" },
+                  false,
+                  ["deriveKey"]
+                );
+
+                const salt = window.crypto.getRandomValues(new Uint8Array(16));
+                const key = await window.crypto.subtle.deriveKey(
+                  {
+                    name: "PBKDF2",
+                    salt: salt,
+                    iterations: 100000,
+                    hash: "SHA-256",
+                  },
+                  keyMaterial,
+                  { name: "AES-GCM", length: 256 },
+                  false,
+                  ["encrypt"]
+                );
+
+                // Encrypt password
+                const iv = window.crypto.getRandomValues(new Uint8Array(12));
+                const encrypted = await window.crypto.subtle.encrypt(
+                  {
+                    name: "AES-GCM",
+                    iv: iv,
+                  },
+                  key,
+                  encoder.encode(valueToEncrypt)
+                );
+
+                // Get the authentication tag
+                const encryptedArray = new Uint8Array(encrypted);
+                const tag = encryptedArray.slice(encryptedArray.length - 16);
+                const ciphertext = encryptedArray.slice(0, encryptedArray.length - 16);
+
+                function typedArrayToString(typedArray) {
+                  let str = '';
+                  for (let i = 0; i < typedArray.length; i++) {
+                    str += String.fromCharCode(typedArray[i]);
+                  }
+                  return str;
+                }
+
+                // Convert encrypted data to JSON
+                const encryptedObj = {
+                  ct: btoa(typedArrayToString(new Uint8Array([...ciphertext, ...tag]))),
+                  iv: btoa(typedArrayToString(iv)),
+                  s: btoa(typedArrayToString(salt)),
+                };
+
+                document.getElementById("password").value = JSON.stringify(encryptedObj);
+                $("#login-form").submit();
+              } catch (error) {
+                console.error(error);
+              }
+            }
             
         });
         
