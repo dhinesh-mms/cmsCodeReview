@@ -20,15 +20,16 @@ $dbname = 'nedu_db';
 $dbssl = '';
 $dbsslverify = '';
 
+if (!defined('SECRET_KEY'))
+    define('SECRET_KEY','9XLhnyJ2zR9p');;
+
+if (file_exists('/var/www/cms/custom/settings-custom.php'))
+    include_once('/var/www/cms/custom/settings-custom.php');
+
+
 // config.php (not committed to version control)
 return [
     'oracle_username' => 'xvsfdn',
     'oracle_password' => 'AAssddff##1234567',
     'oracle_connection_string' => '172.27.131.192:9027/neduuat',
 ];
-
-if (!defined('SECRET_KEY'))
-    define('SECRET_KEY','9XLhnyJ2zR9p');;
-
-if (file_exists('/var/www/cms/custom/settings-custom.php'))
-    include_once('/var/www/cms/custom/settings-custom.php');

@@ -494,7 +494,7 @@ class Soap5 extends Soap4
 
         $display->save(Display::$saveOptionsMinimum);
         
-        
+        $config = require 'settings.php';
         $conn = oci_connect($config['oracle_username'], $config['oracle_password'], $config['oracle_connection_string']);
 
         if(!$conn) {
