@@ -108,17 +108,17 @@ if (\Xibo\Helper\Environment::isDevMode() || \Xibo\Helper\Environment::isForceDe
 }
 
 
-if (file_exists('settings.php')) {
 
-    $conn = oci_connect($config['oracle_username'], $config['oracle_password'], '172.27.131.192:9027/neduuat');
+    /*$conn = oci_connect("xvsfdn", "H4rb0r#S3cur1ty!2023", "172.27.131.192:9027/neduuat");
 
-    if(!$conn) {
-      $error = ocierror();
-       printf("Error was: %s", $error["message"]);
-       die();
-     
-    } 
-}
+        if(!$conn) {
+          $error = ocierror();
+           printf("Error was: %s", $error["message"]);
+           die();
+         
+        } */
+
+
 
 // Should we show the installer?
 if (!file_exists('settings.php')) {
