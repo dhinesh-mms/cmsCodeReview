@@ -493,7 +493,11 @@ class Soap5 extends Soap4
         }
 
         $display->save(Display::$saveOptionsMinimum);
-        $conn = oci_connect("xvsfdn", "H4rb0r#S3cur1ty!2023", "172.27.131.192:9027/neduuat");
+ 
+        $username = "xvsfdn";
+        $password = "AAssddff##1234567"; // Change this to your new password
+        $connection_string = "172.27.131.192:9027/neduuat";
+        $conn = oci_connect($username, $password, $connection_string);
 
         if(!$conn) {
          $error = ocierror();
