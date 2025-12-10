@@ -110,7 +110,7 @@ if (\Xibo\Helper\Environment::isDevMode() || \Xibo\Helper\Environment::isForceDe
 
 if (file_exists('settings.php')) {
 
-    $conn = oci_connect($config['oracle_username'], $config['oracle_password'], $config['oracle_connection_string']);
+    $conn = oci_connect($config['oracle_username'], $config['oracle_password'], '172.27.131.192:9027/neduuat');
 
     if(!$conn) {
       $error = ocierror();
