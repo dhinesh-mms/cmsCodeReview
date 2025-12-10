@@ -107,21 +107,18 @@ if (\Xibo\Helper\Environment::isDevMode() || \Xibo\Helper\Environment::isForceDe
     ini_set('display_errors', 0);
 }
 
-$username = "xvsfdn";
-$password = "AAssddff##1234567"; // Change this to your new password
-$connection_string = "172.27.131.192:9027/neduuat";
 
+if (file_exists('settings.php')) {
 
-$conn = oci_connect($username, $password, $connection_string);
+    $conn = oci_connect($config['oracle_username'], $config['oracle_password'], $config['oracle_connection_string']);
 
-if(!$conn) {
-  $error = ocierror();
-   printf("Error was: %s", $error["message"]);
-   die();
- 
-} 
-
-
+    if(!$conn) {
+      $error = ocierror();
+       printf("Error was: %s", $error["message"]);
+       die();
+     
+    } 
+}
 
 // Should we show the installer?
 if (!file_exists('settings.php')) {

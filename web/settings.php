@@ -20,6 +20,13 @@ $dbname = 'nedu_db';
 $dbssl = '';
 $dbsslverify = '';
 
+// config.php (not committed to version control)
+return [
+    'oracle_username' => 'xvsfdn',
+    'oracle_password' => 'AAssddff##1234567',
+    'oracle_connection_string' => '172.27.131.192:9027/neduuat',
+];
+
 if (!defined('SECRET_KEY'))
     define('SECRET_KEY','9XLhnyJ2zR9p');;
 

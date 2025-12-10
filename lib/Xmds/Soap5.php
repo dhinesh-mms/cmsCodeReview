@@ -493,11 +493,9 @@ class Soap5 extends Soap4
         }
 
         $display->save(Display::$saveOptionsMinimum);
- 
-        $username = "xvsfdn";
-        $password = "AAssddff##1234567"; // Change this to your new password
-        $connection_string = "172.27.131.192:9027/neduuat";
-        $conn = oci_connect($username, $password, $connection_string);
+        
+        
+        $conn = oci_connect($config['oracle_username'], $config['oracle_password'], $config['oracle_connection_string']);
 
         if(!$conn) {
          $error = ocierror();
